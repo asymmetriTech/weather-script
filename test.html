@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript Script</title>
+  </head>
+
+  <body>
+    <style>
+      .icon {
+        width: 50px;
+      }
+      .temps {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: red;
+        font-weight: 700;
+      }
+    </style>
+    <div class="temps">
+      <img class="icon" />
+      <p id="gay"></p>
+      <p class="gayy"></p>
+      <script>
+        window.weatherConfig = {
+          iconElement: document.querySelector(".icon"),
+          temperatureElement: document.querySelector("#gay"),
+          cityElement: document.querySelector(".gayy"),
+        };
+      </script>
+      <script id="weatherScript" src="./dist/index.js" type="module"></script>
+    </div>
+  </body>
+</html>
