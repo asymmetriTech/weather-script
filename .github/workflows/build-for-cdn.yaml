@@ -1,0 +1,27 @@
+name: Build and Deploy to CDN
+
+on:
+  push:
+    branches:
+      - main # Adjust this to match your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build production code
+        run: pnpm build
+
+      - name: Deploy to CDN branch
+        run: |
+          git checkout -b cdn
+          git add .
+          git commit -m "Build for CDN deployment"
+          git push origin cdn
