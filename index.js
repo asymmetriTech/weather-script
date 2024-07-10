@@ -38,7 +38,7 @@ var OPENWEATHER_API_KEY = "9a994988a1d2506ede710da1161cbd27";
 (function () {
     function loadWeather(iconElement, temperatureElement, cityElement) {
         return __awaiter(this, void 0, void 0, function () {
-            var locationResponse, latitude, longitude, city, weatherResponse, iconURL, temperature, weatherDiv, iconElement_1, temperatureElement_1, cityElement_1, scriptTag;
+            var locationResponse, latitude, longitude, city, weatherResponse, iconURL, temperature, weatherDiv, iconElement_1, temperatureElement_1, locationIcon, cityElement_1, cityAndLocationDiv, scriptTag;
             var _a, _b;
             return __generator(this, function (_c) {
                 switch (_c.label) {
@@ -60,12 +60,21 @@ var OPENWEATHER_API_KEY = "9a994988a1d2506ede710da1161cbd27";
                             iconElement_1.src = iconURL;
                             iconElement_1.style.cssText = "width: 50px; height: 50px;";
                             temperatureElement_1 = document.createElement("span");
-                            temperatureElement_1.innerHTML = temperature.toFixed(0) + "°C";
+                            temperatureElement_1.style.cssText = "font-size: 20px; font-weight: bold;";
+                            temperatureElement_1.innerHTML = temperature.toFixed(0) + "<sup style='font-size:14px; font-weight: 500;'>°C</sup>";
+                            locationIcon = document.createElement("img");
+                            locationIcon.src = 'https://www.svgrepo.com/show/127575/location-sign.svg';
+                            locationIcon.style.cssText = "width: 20px; height: 20px;";
                             cityElement_1 = document.createElement("span");
+                            cityElement_1.style.cssText = "font-size: 20px; font-weight: 500;";
                             cityElement_1.innerHTML = city;
+                            cityAndLocationDiv = document.createElement("div");
+                            cityAndLocationDiv.style.cssText = "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px;";
+                            cityAndLocationDiv.appendChild(locationIcon);
+                            cityAndLocationDiv.appendChild(cityElement_1);
+                            weatherDiv.appendChild(cityAndLocationDiv);
                             weatherDiv.appendChild(iconElement_1);
                             weatherDiv.appendChild(temperatureElement_1);
-                            weatherDiv.appendChild(cityElement_1);
                             scriptTag = document.querySelector("#weatherScript");
                             if (scriptTag) {
                                 (_a = scriptTag.parentElement) === null || _a === void 0 ? void 0 : _a.insertBefore(weatherDiv, scriptTag);
