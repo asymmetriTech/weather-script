@@ -23,21 +23,26 @@ const OPENWEATHER_API_KEY = "9a994988a1d2506ede710da1161cbd27";
     const temperature = weatherResponse.main.temp - 273.15;
     if (!iconElement && !temperatureElement && !cityElement) {
       const weatherDiv = document.createElement("div");
-      weatherDiv.style.cssText = "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 10px; padding: 10px; background-color: inherit; font-size: inherit; color: inherit; font-family: inherit; font-weight: inherit;";
+      weatherDiv.style.cssText =
+        "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 10px; padding: 10px; background-color: inherit; font-size: inherit; color: inherit; font-family: inherit; font-weight: inherit; border-radius: inherit;";
       const iconElement = document.createElement("img");
       iconElement.src = iconURL;
       iconElement.style.cssText = "width: 50px; height: 50px;";
       const temperatureElement = document.createElement("span");
       temperatureElement.style.cssText = "font-size: 20px; font-weight: bold;";
-      temperatureElement.innerHTML = temperature.toFixed(0) + "<sup style='font-size:14px; font-weight: 500;'>°C</sup>";
+      temperatureElement.innerHTML =
+        temperature.toFixed(0) +
+        "<sup style='font-size:14px; font-weight: 500;'>°C</sup>";
       const locationIcon = document.createElement("img");
-      locationIcon.src = 'https://www.svgrepo.com/show/127575/location-sign.svg'
+      locationIcon.src =
+        "https://www.svgrepo.com/show/127575/location-sign.svg";
       locationIcon.style.cssText = "width: 20px; height: 20px;";
       const cityElement = document.createElement("span");
       cityElement.style.cssText = "font-size: 20px; font-weight: 500;";
       cityElement.innerHTML = city;
       const cityAndLocationDiv = document.createElement("div");
-      cityAndLocationDiv.style.cssText = "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px;";
+      cityAndLocationDiv.style.cssText =
+        "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px;";
       cityAndLocationDiv.appendChild(locationIcon);
       cityAndLocationDiv.appendChild(cityElement);
       weatherDiv.appendChild(cityAndLocationDiv);
@@ -53,12 +58,19 @@ const OPENWEATHER_API_KEY = "9a994988a1d2506ede710da1161cbd27";
     }
     if (iconElement) {
       iconElement.src = iconURL;
-    } if (temperatureElement) {
+    }
+    if (temperatureElement) {
       temperatureElement.innerHTML = temperature.toFixed(0) + "°C";
-    } if (cityElement) {
+    }
+    if (cityElement) {
       cityElement.innerHTML = city;
     }
   }
   const config = (window as CurrentWindow).weatherConfig || {};
-  loadWeather(config.iconElement, config.temperatureElement, config.cityElement);
+  loadWeather(
+    config.iconElement,
+    config.temperatureElement,
+    config.cityElement,
+  );
 })();
+
