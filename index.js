@@ -55,21 +55,26 @@ var OPENWEATHER_API_KEY = "9a994988a1d2506ede710da1161cbd27";
                         temperature = weatherResponse.main.temp - 273.15;
                         if (!iconElement && !temperatureElement && !cityElement) {
                             weatherDiv = document.createElement("div");
-                            weatherDiv.style.cssText = "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 10px; padding: 10px; background-color: inherit; font-size: inherit; color: inherit; font-family: inherit; font-weight: inherit;";
+                            weatherDiv.style.cssText =
+                                "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 10px; padding: 10px; background-color: inherit; font-size: inherit; color: inherit; font-family: inherit; font-weight: inherit; border-radius: inherit;";
                             iconElement_1 = document.createElement("img");
                             iconElement_1.src = iconURL;
                             iconElement_1.style.cssText = "width: 50px; height: 50px;";
                             temperatureElement_1 = document.createElement("span");
                             temperatureElement_1.style.cssText = "font-size: 20px; font-weight: bold;";
-                            temperatureElement_1.innerHTML = temperature.toFixed(0) + "<sup style='font-size:14px; font-weight: 500;'>°C</sup>";
+                            temperatureElement_1.innerHTML =
+                                temperature.toFixed(0) +
+                                    "<sup style='font-size:14px; font-weight: 500;'>°C</sup>";
                             locationIcon = document.createElement("img");
-                            locationIcon.src = 'https://www.svgrepo.com/show/127575/location-sign.svg';
+                            locationIcon.src =
+                                "https://www.svgrepo.com/show/127575/location-sign.svg";
                             locationIcon.style.cssText = "width: 20px; height: 20px;";
                             cityElement_1 = document.createElement("span");
                             cityElement_1.style.cssText = "font-size: 20px; font-weight: 500;";
                             cityElement_1.innerHTML = city;
                             cityAndLocationDiv = document.createElement("div");
-                            cityAndLocationDiv.style.cssText = "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px;";
+                            cityAndLocationDiv.style.cssText =
+                                "display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 5px;";
                             cityAndLocationDiv.appendChild(locationIcon);
                             cityAndLocationDiv.appendChild(cityElement_1);
                             weatherDiv.appendChild(cityAndLocationDiv);
